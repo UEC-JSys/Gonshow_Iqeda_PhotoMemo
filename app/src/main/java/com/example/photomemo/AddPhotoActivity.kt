@@ -3,6 +3,7 @@ package com.example.photomemo
 import android.app.Activity
 import android.app.Application
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 
 class AddPhotoActivity : AppCompatActivity() {
     private val pickPhotoRequestCode = 2
-    var imageUri = findViewById<ImageView>(R.id.addPhotoImageView)
+    private var imageUri : Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_photo)
@@ -56,7 +57,7 @@ class AddPhotoActivity : AppCompatActivity() {
                             it, Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 val imageView = findViewById<ImageView>(R.id.addPhotoImageView)
                 imageView.setImageURI(it)
-
+                imageUri = it
             }
         }
     }
