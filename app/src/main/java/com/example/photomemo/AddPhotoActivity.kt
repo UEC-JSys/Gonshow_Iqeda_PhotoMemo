@@ -59,6 +59,8 @@ class AddPhotoActivity : AppCompatActivity() {
         }
     }
 }
+
+
 class AddPhotoViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: PhotoRepository
     init {
