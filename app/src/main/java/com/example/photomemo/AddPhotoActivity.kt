@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 
 class AddPhotoActivity : AppCompatActivity() {
     private val pickPhotoRequestCode = 2
+    var imageUri = findViewById<ImageView>(R.id.addPhotoImageView)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_photo)
@@ -33,7 +34,7 @@ class AddPhotoActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val editText = findViewById<EditText>(R.id.addPhotoEditText)
             val replyIntent = Intent()
-            val imageUri = findViewById<ImageView>(R.id.addPhotoImageView)
+
             if (imageUri == null || TextUtils.isEmpty(editText.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
@@ -55,6 +56,7 @@ class AddPhotoActivity : AppCompatActivity() {
                             it, Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 val imageView = findViewById<ImageView>(R.id.addPhotoImageView)
                 imageView.setImageURI(it)
+
             }
         }
     }
