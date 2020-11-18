@@ -13,7 +13,7 @@ class AddPhotoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_photo)
 
-        val openButton: Button = findViewById(R.id.addPhotoMemoImageView)
+        val openButton: Button = findViewById(R.id.addPhotoOpenButton)
         openButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
